@@ -1,15 +1,19 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+
+import TodoCategory from '../todo/todoCategory'
+
 
 class App extends Component{
   constructor(props){
     super(props)
   }
 
-  render(){
+  render(){    
     return(
-      <div> Realizando teste </div>
+      <TodoCategory />
     )
-  }
+  } 
 }
 
 export default App
