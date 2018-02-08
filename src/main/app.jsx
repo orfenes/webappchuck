@@ -1,7 +1,4 @@
 import React, { Component } from 'react'
-import Header from '../template/header'
-import TodoForm from '../todo/todoForm'
-import TodoList from '../todo/todoList'
 
 class App extends Component{
   constructor(props){
@@ -10,11 +7,7 @@ class App extends Component{
 
   render(){
     return(
-      <main>
-        <Header />
-        <TodoForm />
-        <TodoList />
-      </main>
+      <div> Realizando teste </div>
     )
   }
 }
