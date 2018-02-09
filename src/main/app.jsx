@@ -1,3 +1,6 @@
+import 'modules/bootstrap/dist/css/bootstrap.min.css'
+import '../template/custom.css'
+
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
@@ -12,7 +15,7 @@ class App extends Component{
 
   render(){    
     return(
-      <div>
+      <div className='container'>
         <TodoCategory />
         <TodoItemCategories />
       </div>

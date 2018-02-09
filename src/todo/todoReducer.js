@@ -1,22 +1,26 @@
 const INITAL_STATE = { 
-  categories: ['mara', 'tereza', 'jose', 'orfenes'],
-  itemCategory: {
-    category: [
-      'history'
-    ],
-    "icon_url": "https://assets.chucknorris.host/img/avatar/chuck-norris.png",
-    "id": "rqcvwdgqq6amwony3nngba",
-    "url": "https://api.chucknorris.io/jokes/rqcvwdgqq6amwony3nngba",
-    "value": "In the Words of Julius Caesar, \"Veni, Vidi, Vici, Chuck Norris\". Translation: I came, I saw, and I was roundhouse-kicked inthe face by Chuck Norris."
-  } 
+  categories: [],
+  itemCategory: {},
+  dropDown: false
+}
 
+const classWayOpen = (status) => {  
+  if(status){
+    return false
+  }else{
+    return true
+  }  
 }
 
 export default function(state = INITAL_STATE, action){
   switch(action.type){
-    case 'SHOW_ITEMS_CATEGORY':
-      console.log('resultado')               
-      return {...state, itemCategory: []}
+    case 'GET_CATEGORIES':
+     return { ...state, categories: action.payload.data }
+    case 'SHOW_ITEMS_CATEGORY':           
+      return {...state, itemCategory: action.payload.data}
+    case 'SHOW_LIST_CATEGORIES':
+      let showItemsMenu = classWayOpen(action.payload);      
+      return { ...state, dropDown: showItemsMenu}
     default:
       return state
   }
