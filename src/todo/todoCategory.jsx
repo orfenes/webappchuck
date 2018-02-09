@@ -9,7 +9,7 @@ const TodoCategory = props => {
     let listCategories = props.categories || []
 
     return listCategories.map((todo, i) =>(
-      <li className='item-categorier' key={i} onClick={() => props.showItensCategory(todo)}>{todo}</li>
+      <li className='categorie' key={i} onClick={() => props.showItensCategory(todo)}>{todo}</li>
     ))    
   }
 

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import TodoCategory from '../todo/todoCategory'
+import TodoItemCategories from '../todo/todoItemCategories'
 
 
 class App extends Component{
@@ -11,7 +12,10 @@ class App extends Component{
 
   render(){    
     return(
-      <TodoCategory />
+      <div>
+        <TodoCategory />
+        <TodoItemCategories />
+      </div>
     )
   } 
 }
