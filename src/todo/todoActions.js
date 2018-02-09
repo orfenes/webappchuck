@@ -33,17 +33,24 @@ export const getListCategories = () =>{
   }
 }
 
-export const showCard = (status) => {    
-  return {
-    type: 'SHOW_CARD',
-    payload: status
-  }
-}
+export const showCard = (status) => ({
+  type: 'SHOW_CARD',
+  payload: status  
+})
 
 export const findContent = (query) => {  
+  return [  
+    showListCategories(true),
+    getFindContext(query),
+    {type: 'TEXT_SEARCH', payload: query}
+  ]
+}
+
+export const getFindContext = (query) => {
   return dispatch => {
     axios.get(`${URL}/search?query=${query}`)
       .then(resp => dispatch({type: 'QUERY_DATA', payload: resp}))
+      .then(resp => dispatch(showCard(true)))
   }  
 }
 

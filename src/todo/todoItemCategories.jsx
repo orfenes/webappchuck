@@ -9,9 +9,23 @@ class TodoItemCategories extends Component {
     super(props)    
   }  
 
-  showItemsCategories(){
-    let item = this.props.itemsCategory || {}   
-    return <div className='card' key={item.id}>             
+  showItemCategories(){
+    let item = this.props.itemsCategory || {}     
+    if(item.hasOwnProperty('result')){
+      return item.result.map((item, i) =>(
+        <div className='card' key={item.id}>             
+          <figure>
+            <img className='card-img-top' src={item.icon_url} />          
+            <figcaption className='card-body'>
+              <h5 className="card-title">{item.category}</h5>
+              <p className="card-text">{item.value} </p>
+              <a href={item.url} className="btn btn-primary">Go somewhere</a>
+            </figcaption>              
+          </figure>                  
+        </div>  
+      ))
+    }else{
+      return <div className='card' key={item.id}>             
             <figure>
               <img className='card-img-top' src={item.icon_url} />          
               <figcaption className='card-body'>
@@ -21,12 +35,15 @@ class TodoItemCategories extends Component {
               </figcaption>              
             </figure>                  
           </div>  
+    }    
   }
   render(){       
     return(
-      <div className={'wrapper-content-item-categorie ' + (this.props.classCard ? 'd-block': 'd-none' )}>  
-        {this.showItemsCategories()}      
-      </div>    
+      <div className='container'>      
+        <div className={'wrapper-content-item-categorie ' + (this.props.classCard ? 'd-block': 'd-none' )}>  
+        {this.showItemCategories()}      
+        </div>    
+      </div>
     ) 
   }
 }

@@ -24,6 +24,9 @@ class TodoCategory extends Component {
   render(){
     return(
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <button className="navbar-toggler navbar-toggler-right" onClick={() => this.props.showListCategories(this.props.dropDown)}>
+          <span className="navbar-toggler-icon"></span>
+        </button>
         <div className={"collapse navbar-collapse " + (this.props.dropDown ? 'show' : 'closed')} id="navbarSupportedContent">   
           <ul className="navbar-nav mr-auto">  
             <li className="nav-item dropdown"> 

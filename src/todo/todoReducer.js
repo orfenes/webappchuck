@@ -4,7 +4,8 @@ const INITAL_STATE = {
   itemCategory: {},
   dropDown: false,
   classCard: false,
-  textFind: ''
+  textFind: '',
+  queryString: ''  
 }
 
 const classWayOpen = (status) => {    
@@ -29,9 +30,11 @@ export default function(state = INITAL_STATE, action){
     case 'SHOW_CARD':            
       return {... state, classCard: action.payload}
     case 'QUERY_DATA':
-      console.log('conteudo', action.payload.data);
+      return {...state, itemCategory: action.payload.data}
     case 'DESCRIPTION_CHANGED':
       return {...state, textFind: action.payload}
+    case 'TEXT_SEARCH':
+      return {...state, queryString: action.payload}
     default: 
       return state
   }

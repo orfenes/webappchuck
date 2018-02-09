@@ -15,7 +15,7 @@ class App extends Component{
 
   render(){    
     return(
-      <div className='container'>
+      <div className='wrapper-container'>
         <TodoCategory />
         <TodoItemCategories />
       </div>
