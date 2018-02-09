@@ -12,6 +12,8 @@ export const showListCategories = (status) => {
 export const showItensCategory = (category, status) =>{      
   return [
     showListCategories(status),
+    showLoaderPage(true),
+    showCard(false),
     getItemsCategory(category),
     { type: 'SHOW_ITEMS_CATEGORY', payload: category}
   ]
@@ -21,7 +23,9 @@ export const getItemsCategory = (category) => {
   return dispatch => {
     axios.get(`${URL}/random?category=${category}`) 
       .then(resp => dispatch({type: 'GET_ITEMS_CATEGORIES', payload: resp}))
+      .then(resp => dispatch(showLoaderPage(false)))
       .then(resp => dispatch(showCard(true)))
+      
   }
 }
 
@@ -57,4 +61,9 @@ export const getFindContext = (query) => {
 export const changeDescriptionFind = (event) => ({
   type: 'DESCRIPTION_CHANGED',
   payload: event.target.value
+})
+
+export const showLoaderPage = (status) => ({
+  type: 'SHOW_LOADER_PAGE',
+  payload: status
 })

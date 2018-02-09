@@ -5,7 +5,8 @@ const INITAL_STATE = {
   dropDown: false,
   classCard: false,
   textFind: '',
-  queryString: ''  
+  queryString: '',
+  showLoader: false
 }
 
 const classWayOpen = (status) => {    
@@ -35,6 +36,8 @@ export default function(state = INITAL_STATE, action){
       return {...state, textFind: action.payload}
     case 'TEXT_SEARCH':
       return {...state, queryString: action.payload}
+    case 'SHOW_LOADER_PAGE':
+      return {...state, showLoader: action.payload}
     default: 
       return state
   }

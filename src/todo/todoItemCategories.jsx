@@ -38,10 +38,12 @@ class TodoItemCategories extends Component {
     }    
   }
   render(){       
+    console.log(this.props.loader)
     return(
       <div className='container'>      
+        <div className={"loader " + (this.props.loader ? 'd-block': 'd-none' )}></div>  
         <div className={'wrapper-content-item-categorie ' + (this.props.classCard ? 'd-block': 'd-none' )}>  
-        {this.showItemCategories()}      
+          {this.showItemCategories()}      
         </div>    
       </div>
     ) 
@@ -49,6 +51,6 @@ class TodoItemCategories extends Component {
 }
 
 
-const mapSteteToProps = state => ({itemsCategory: state.todo.itemCategory, classCard: state.todo.classCard})
+const mapSteteToProps = state => ({itemsCategory: state.todo.itemCategory, classCard: state.todo.classCard, loader: state.todo.showLoader})
 
 export default connect(mapSteteToProps)(TodoItemCategories) 

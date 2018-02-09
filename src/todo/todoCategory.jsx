@@ -42,7 +42,7 @@ class TodoCategory extends Component {
             <input className="form-control mr-sm-2" placeholder="Search" onChange={this.props.changeDescriptionFind}/>
             <button className="btn btn-outline-success my-2 my-sm-0" onClick={() => this.props.findContent(this.props.textFind) }>Search</button>
           </form>
-        </div>
+        </div>             
       </nav>
     )
   }
