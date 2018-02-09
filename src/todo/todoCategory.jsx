@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { showItensCategory, getListCategories, showListCategories } from './todoActions'
+import { showItensCategory, getListCategories, showListCategories, findContent, changeDescriptionFind } from './todoActions'
 
 class TodoCategory extends Component {   
 
@@ -35,13 +35,17 @@ class TodoCategory extends Component {
               </div>                      
             </li>
           </ul>
+          <form className="form-inline my-2 my-lg-0">
+            <input className="form-control mr-sm-2" placeholder="Search" onChange={this.props.changeDescriptionFind}/>
+            <button className="btn btn-outline-success my-2 my-sm-0" onClick={() => this.props.findContent(this.props.textFind) }>Search</button>
+          </form>
         </div>
       </nav>
     )
   }
 }
 
-const mapSteteToProps = state => ({categories: state.todo.categories, dropDown: state.todo.dropDown})
-const mapDispatchToProps = dispatch => bindActionCreators({ showItensCategory, getListCategories, showListCategories }, dispatch)
+const mapSteteToProps = state => ({categories: state.todo.categories, dropDown: state.todo.dropDown, textFind: state.todo.textFind})
+const mapDispatchToProps = dispatch => bindActionCreators({ showItensCategory, getListCategories, showListCategories, findContent, changeDescriptionFind }, dispatch)
 
 export default connect(mapSteteToProps, mapDispatchToProps)(TodoCategory)

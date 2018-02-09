@@ -1,12 +1,16 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { showCard } from './todoActions'
 
-const TodoItemCategories = props => {
+class TodoItemCategories extends Component {  
+  
+  constructor(props){
+    super(props)    
+  }  
 
-  const showItemsCategories = () => {
-    let item = props.itemsCategory || {}
-    console.log(item);
-
+  showItemsCategories(){
+    let item = this.props.itemsCategory || {}   
     return <div className='card' key={item.id}>             
             <figure>
               <img className='card-img-top' src={item.icon_url} />          
@@ -18,14 +22,16 @@ const TodoItemCategories = props => {
             </figure>                  
           </div>  
   }
-  return(
-    <div className='wrapper-content-item-categorie'>      
-      {showItemsCategories()}      
-    </div>    
-  )
+  render(){       
+    return(
+      <div className={'wrapper-content-item-categorie ' + (this.props.classCard ? 'd-block': 'd-none' )}>  
+        {this.showItemsCategories()}      
+      </div>    
+    ) 
+  }
 }
 
 
-const mapSteteToProps = state => ({itemsCategory: state.todo.itemCategory})
+const mapSteteToProps = state => ({itemsCategory: state.todo.itemCategory, classCard: state.todo.classCard})
 
 export default connect(mapSteteToProps)(TodoItemCategories) 

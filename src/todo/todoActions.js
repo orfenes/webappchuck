@@ -9,12 +9,20 @@ export const showListCategories = (status) => {
   }
 }
 
-export const showItensCategory = (category, status) =>{  
-  const request = axios.get(`${URL}/random?category=${category}`)   
+export const showItensCategory = (category, status) =>{      
   return [
     showListCategories(status),
-    { type: 'SHOW_ITEMS_CATEGORY', payload: request}
+    getItemsCategory(category),
+    { type: 'SHOW_ITEMS_CATEGORY', payload: category}
   ]
+}
+
+export const getItemsCategory = (category) => { 
+  return dispatch => {
+    axios.get(`${URL}/random?category=${category}`) 
+      .then(resp => dispatch({type: 'GET_ITEMS_CATEGORIES', payload: resp}))
+      .then(resp => dispatch(showCard(true)))
+  }
 }
 
 export const getListCategories = () =>{
@@ -25,10 +33,21 @@ export const getListCategories = () =>{
   }
 }
 
-// export const add = (description) => {
-//   return dispatch => {
-//     axios.post(URL, { description })
-//       .then(resp => dispatch({type: 'TODO_ADDED', payload: resp.data}))
-//       .then(resp => dispatch(search()))
-//   }
-// }
+export const showCard = (status) => {    
+  return {
+    type: 'SHOW_CARD',
+    payload: status
+  }
+}
+
+export const findContent = (query) => {  
+  return dispatch => {
+    axios.get(`${URL}/search?query=${query}`)
+      .then(resp => dispatch({type: 'QUERY_DATA', payload: resp}))
+  }  
+}
+
+export const changeDescriptionFind = (event) => ({
+  type: 'DESCRIPTION_CHANGED',
+  payload: event.target.value
+})
