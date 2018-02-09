@@ -45,6 +45,8 @@ export const showCard = (status) => ({
 export const findContent = (query) => {  
   return [  
     showListCategories(true),
+    showLoaderPage(true),
+    showCard(false),
     getFindContext(query),
     {type: 'TEXT_SEARCH', payload: query}
   ]
@@ -54,6 +56,7 @@ export const getFindContext = (query) => {
   return dispatch => {
     axios.get(`${URL}/search?query=${query}`)
       .then(resp => dispatch({type: 'QUERY_DATA', payload: resp}))
+      .then(resp => dispatch(showLoaderPage(false)))
       .then(resp => dispatch(showCard(true)))
   }  
 }
