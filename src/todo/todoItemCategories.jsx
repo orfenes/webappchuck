@@ -7,25 +7,21 @@ const TodoItemCategories = props => {
     let item = props.itemsCategory || {}
     console.log(item);
 
-    return <li className='item-categorie' key={item.id}>
-        <a href={item.url}> 
-          <figure>
-            <img src={item.icon_url} />          
-            <figcaption>
-              {item.value}
-            </figcaption>
-          </figure>      
-        </a>
-      </li>   
+    return <div className='card' key={item.id}>             
+            <figure>
+              <img className='card-img-top' src={item.icon_url} />          
+              <figcaption className='card-body'>
+                <h5 className="card-title">{item.category}</h5>
+                <p className="card-text">{item.value} </p>
+                <a href={item.url} className="btn btn-primary">Go somewhere</a>
+              </figcaption>              
+            </figure>                  
+          </div>  
   }
-
   return(
-    <div className='wrapper-content-item-categorie'>
-      <ul className='list-item-categorie'>
-        {showItemsCategories()}
-      </ul>
-    </div>
-    
+    <div className='wrapper-content-item-categorie'>      
+      {showItemsCategories()}      
+    </div>    
   )
 }
 

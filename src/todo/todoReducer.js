@@ -1,7 +1,8 @@
 const INITAL_STATE = { 
   categories: [],
   itemCategory: {},
-  dropDown: false
+  dropDown: false,
+  showCard: 'd-none'
 }
 
 const classWayOpen = (status) => {  

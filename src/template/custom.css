@@ -1,3 +1,8 @@
 .bg-light {
   background-color: #8194a7!important;
 }
+
+.card{
+  width: 18rem!important;
+  margin-top: 15px;
+}
