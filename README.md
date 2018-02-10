@@ -1,4 +1,4 @@
-#Projeto WebAppChuckNorris
+# Projeto WebAppChuckNorris
 
 
 1. Pelo terminal entre no repositorio clonado
@@ -10,6 +10,6 @@ obs: link do projeto https://orfenes-chucknorris.herokuapp.com/
 
 -----------------------------------------------------------------------------------------------------------
 
-######Redimenisonamento de imagem
+###### Redimenisonamento de imagem
 
-#######Obrigatorio dependencias para utilizar node > 6.
+####### Obrigatorio dependencias para utilizar node > 6.
