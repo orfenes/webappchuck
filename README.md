@@ -6,7 +6,7 @@
 3. no terminal rode o comando npm run dev
 4. abrir o navegador como o seguinte endereço http://localhost:9000/
 
-obs: link do projeto
+obs: link do projeto https://orfenes-chucknorris.herokuapp.com/
 
 -----------------------------------------------------------------------------------------------------------
 
