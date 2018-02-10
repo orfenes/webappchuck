@@ -1,6 +1,5 @@
 # Projeto WebAppChuckNorris
 
-
 1. Pelo terminal entre no repositorio clonado
 2. rode o comando npm i
 3. no terminal rode o comando npm run dev
@@ -8,8 +7,4 @@
 
 obs: link do projeto https://orfenes-chucknorris.herokuapp.com/
 
------------------------------------------------------------------------------------------------------------
-
-###### Redimenisonamento de imagem
-
-####### Obrigatorio dependencias para utilizar node > 6.
+###### Obrigatorio dependencias para utilizar node > 6.
