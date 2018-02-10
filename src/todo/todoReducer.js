@@ -30,7 +30,7 @@ export default function(state = INITAL_STATE, action){
       return { ...state, dropDown: showItemsMenu}
     case 'SHOW_CARD':            
       return {... state, classCard: action.payload}
-    case 'QUERY_DATA':
+    case 'QUERY_DATA':    
       return {...state, itemCategory: action.payload.data}
     case 'DESCRIPTION_CHANGED':
       return {...state, textFind: action.payload}
